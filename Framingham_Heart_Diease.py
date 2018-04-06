@@ -67,6 +67,7 @@ posterior_probabilites= print(logreg.predict_proba(x_test))
 
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
+from sklearn.metrics import mean_squared_error
 #from sklearn.tree import export_graphviz
 #from sklearn import tree
 #import pydotplus
@@ -84,10 +85,14 @@ tree_entropy.fit (x_tree_train, y_tree_train)
 tree_prediction = tree_gini.predict(x_tree_test)
 y_pred= tree_entropy.predict(x_tree_test)
 
+
 # Performance Evaluation for Decision Trees
 print("\n Gini Index Tree Classification Report"+ "\n" + classification_report(y_test, tree_prediction))
 print("\n Gini Index Tree Accuracy: {:.3f}".format(accuracy_score(y_test, tree_prediction))) 
+print("\n Gini Index Tree Mean square error: {:.5f}".format(mean_squared_error(y_test, tree_prediction))) 
+
 print("\n Entropy Tree Classification Report"+ "\n" + classification_report(y_test, y_pred))
 print("Entropy Tree Accuracy: {:.3f}".format(accuracy_score(y_test, y_pred)))
+print("\n Entropy Tree Mean square error: {:.5f}".format(mean_squared_error(y_test, y_pred))) 
 
 
